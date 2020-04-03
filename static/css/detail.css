@@ -1,0 +1,47 @@
+.detail{
+    width: 780px;
+    height: 500px;
+    margin: 40px auto 40px auto;
+
+}
+h3{
+    text-align: center;
+}
+.info{
+    text-align: center;
+    font-size: small;
+}
+.line{
+    width:780px;
+    height:1px;
+    margin:5px auto 5px;
+    padding:0px;
+    overflow:hidden;
+    background-color: rgba(0,123,255,.25);
+
+}
+.comment-form{
+    margin: 20px auto;
+
+}
+.desc{
+    padding: 10px;
+}
+
+.user-info{
+    display: flex;
+}
+.info-group{
+    padding-left: 20px;
+    padding-top: 8px;
+    font-size: small;
+}
+
+.avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.content{
+    padding-left: 70px;
+}

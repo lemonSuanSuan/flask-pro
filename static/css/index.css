@@ -1,0 +1,42 @@
+.main-box{
+    width: 780px;
+    height: 500px;
+    margin: 40px auto 40px auto;
+}
+.item{
+    display: flex;
+    height: 120px;
+    align-items: center;
+    border-bottom: 1px solid #84c6ff;
+}
+.avatar-group{
+    flex: 1;
+
+}
+.question-group{
+    flex: 8;
+    height: 100px;
+
+
+}
+.content{
+    height: 72px;
+    /*溢出省略号*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+
+}
+.content a{
+    color: #259;
+    font-weight: 900;
+}
+.info{
+    float: right;
+}
+.avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
