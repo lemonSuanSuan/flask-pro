@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}首页{% endblock %}
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+{% block main %}
+    <div class="main-box">
+        {%for each in paginate.items  %}
+            <div class="item">
+                <div class="avatar-group">
+                    <img class="avatar" src="{{ url_for('static',filename='images/logo.jpg') }}" alt="">
+                </div>
+                <div class="question-group">
+                    <div class="content">
+                        <div class="title"><a href="{{ url_for('blue_question.detail',question_id=each.id) }}">{{ each.title }}</a></div>
+                        <div class="desc">{{ each.desc }}</div>
+                    </div>
+                    <div class="info">
+                        <span class="author">{{ each.author.username }}</span>
+                        <span class="time">{{ each.create_time }}</span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+<div class=pagination>
+    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+      {# 如果有上一页#}
+      {% if paginate.has_prev %}
+        <li class="page-item">
+          <a class="page-link" href="{{ url_for('blue_index.index',page=paginate.prev_num,per_page=per_page) }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      {% endif %}
+      {# 页码 #}
+      {% for page in paginate.iter_pages() %}
+          {% if page %}
+            {% if page != paginate.page %}
+                <li class="page-item"><a class="page-link" href="{{ url_for('blue_index.index',page=page,per_page=per_page) }}">{{ page }}</a></li>
+            {% else %}
+                <li class="page-item active"><a class="page-link" href="{{ url_for('blue_index.index',page=page,per_page=per_page) }}">{{ page }}</a></li>
+            {% endif %}
+          {% else %}
+            <span class=ellipsis>…</span>
+          {% endif %}
+      {% endfor %}
+  {# 如果有下一页 #}
+  {% if paginate.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="{{ url_for('blue_index.index',page=paginate.next_num,per_page=per_page) }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  {% endif %}
+  </ul>
+</nav>
+    <span>当前页数{{ paginate.page }}</span>
+    <span>总页数{{ paginate.pages }}</span>
+</div>
+    </div>
+{% endblock %}

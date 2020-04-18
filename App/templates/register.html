@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}注册{% endblock %}
+{% block link %}
+
+{% endblock %}
+{% block main %}
+    <div class="main">
+        <div class="border_form">
+            <form method="POST" class="loginform">
+              <div class="form-group">
+                <label for="exampleInputEmail1">手机号</label>
+                <input type="text" class="form-control" id="phone" aria-describedby="emailHelp" name="telephone">
+              </div>
+                <div class="form-group">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="请输入验证码"  aria-describedby="button-addon2" name="code">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="get-code">获取验证码</button>
+                  </div>
+                </div>
+                </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">用户名</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">密码</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">确认密码</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password2">
+              </div>
+              <button type="submit" class="btn btn-primary">注册</button>
+              {% for message in get_flashed_messages() %}
+                {{ message }}
+              {% endfor %}
+            </form>
+    </div>
+{% endblock %}

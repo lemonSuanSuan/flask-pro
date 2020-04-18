@@ -5,7 +5,6 @@
 # 在需要登录才能访问的页面的试图函数前加上这个函数装饰器即可
 from functools import wraps
 from flask import session, redirect, url_for
-from models import User
 
 
 def login_required(func):
